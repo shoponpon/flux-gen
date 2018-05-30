@@ -1,8 +1,7 @@
 # flux-gen[WIP]
 flux component generator
 
-This generator generate some templetes of the component with facebook-flux.
-
+This generator generates some templates for [facebook/flux](https://github.com/facebook/flux) component.
 
 ## Installation
 
