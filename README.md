@@ -89,6 +89,7 @@ $ flux-gen dispatcher
 ```
 
 #### output
+- Dispatcher.js
 ```
 import { Dispatcher } from 'flux'
 export default new Dispatcher()
