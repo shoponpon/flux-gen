@@ -18,9 +18,8 @@ function createAction(name){
   name = fixName(name)
   const actionPath = `${process.cwd()}/${name}Actions.js`
   const actionTypePath = `${process.cwd()}/${name}ActionTypes.js`
-
-  fs.writeFile(actionTypePath, `const ${name}ActionTypes = {}\nexport default ${name}ActionTypes\n`)
-  fs.writeFile(actionPath, `import ${name}ActionTypes from './${name}ActionTypes.js'\nconst ${name}Actions = {}\nexport default ${name}Actions\n`)
+  fs.writeFileSync(actionTypePath, `const ${name}ActionTypes = {}\nexport default ${name}ActionTypes\n`)
+  fs.writeFileSync(actionPath, `import ${name}ActionTypes from './${name}ActionTypes.js'\nconst ${name}Actions = {}\nexport default ${name}Actions\n`)
 }
 
 switch(type){
