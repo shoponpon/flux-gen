@@ -15,12 +15,12 @@ $ npm install -g https://github.com/shoponpon/flux-gen.git
 $ flux-gen action [actionname]
 ```
 
-### Generate templetes of Dispatcher.js
+### Generate a templete of Dispatcher.js
 ```
 $ flux-gen dispatcher
 ```
 
-### Generate templetes of Store.js
+### Generate a templete of Store.js
 ```
 $ flux-gen action [storename] [dispatcherPath]
 ```
