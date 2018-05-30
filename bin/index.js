@@ -28,6 +28,11 @@ function createStore(name, dispathcerPath) {
   fs.writeFileSync(storePath, `import { ReduceStore } from 'flux/utils'\nimport Dispatcher from '${dispathcerPath}'\n\nclass ${name}Store extends ReduceStore {\n  constructor() {\n    super(Dispatcher)\n  }\n\n  getInitialState() {\n    return {}\n  }\n\n  reduce(state, action) {\n    switch (action.type) {\n      default:\n        break\n    }\n    return Object.assign({}, state)\n  }\n}\n\nexport default new ${name}Store()`)
 }
 
+function createDispatcher() {
+  const dispatcherPath = `${process.cwd()}/Dispatcher.js`
+  fs.writeFileSync(dispatcherPath, `import { Dispatcher } from 'flux'\nexport default new Dispatcher()`)
+}
+
 switch (type) {
   case "action":
     {
@@ -48,6 +53,11 @@ switch (type) {
       const name = process.argv[3]
       const dispatcherPath = process.argv[4]
       createStore(name, dispatcherPath)
+      break
+    }
+  case "dispatcher":
+    {
+      createDispatcher()
       break
     }
   default:
