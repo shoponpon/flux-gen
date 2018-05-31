@@ -12,7 +12,7 @@ $ npm install -g https://github.com/shoponpon/flux-gen.git
 ## How to use
 ### Generate templetes of Actions.js and ActionTypes.js
 ```
-$ flux-gen action [actionname]
+$ flux-gen action [actionname] [dispatcherPath]
 ```
 
 ### Generate a templete of Dispatcher.js
@@ -29,14 +29,15 @@ $ flux-gen action [storename] [dispatcherPath]
 ### Actions.js and ActionTypes.js
 #### command
 ```
-$ flux-gen action image
+$ flux-gen action image ./Dispatcher.js
 ```
 #### output
 
 - ImageActions.js
 
 ```
-import ImageActionTypes from './ImageActionTypes.js'
+import ImageActionTypes from './ImageActionTypes'
+import Dispatcher from './Dispatcher'
 const ImageActions = {}
 export default ImageActions
 ```
@@ -59,7 +60,7 @@ $ flux-gen store image ./Dispatcher.js
 
 ```
 import { ReduceStore } from 'flux/utils'
-import Dispatcher from './Dispatcher.js'
+import Dispatcher from './Dispatcher'
 
 class ImageStore extends ReduceStore {
   constructor() {
@@ -100,3 +101,4 @@ export default new Dispatcher()
 - [x] Store Generator
 - [x] Dispatcher Generator
 - [ ] Container Generator
+- [ ] Refactoring
