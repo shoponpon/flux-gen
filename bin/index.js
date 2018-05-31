@@ -19,10 +19,11 @@ function createAction(name) {
   const actionPath = `${process.cwd()}/${name}Actions.js`
   const actionTypePath = `${process.cwd()}/${name}ActionTypes.js`
   fs.writeFileSync(actionTypePath, `const ${name}ActionTypes = {}\nexport default ${name}ActionTypes\n`)
-  fs.writeFileSync(actionPath, `import ${name}ActionTypes from './${name}ActionTypes.js'\nconst ${name}Actions = {}\nexport default ${name}Actions\n`)
+  fs.writeFileSync(actionPath, `import ${name}ActionTypes from './${name}ActionTypes'\nconst ${name}Actions = {}\nexport default ${name}Actions\n`)
 }
 
 function createStore(name, dispathcerPath) {
+  dispathcerPath = dispathcerPath.slice(0,-3)
   name = fixName(name)
   const storePath = `${process.cwd()}/${name}Store.js`
   fs.writeFileSync(storePath, `import { ReduceStore } from 'flux/utils'\nimport Dispatcher from '${dispathcerPath}'\n\nclass ${name}Store extends ReduceStore {\n  constructor() {\n    super(Dispatcher)\n  }\n\n  getInitialState() {\n    return {}\n  }\n\n  reduce(state, action) {\n    switch (action.type) {\n      default:\n        break\n    }\n    return Object.assign({}, state)\n  }\n}\n\nexport default new ${name}Store()`)
